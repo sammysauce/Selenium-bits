@@ -1,0 +1,25 @@
+private WebDriver driver = null;
+	private String baseUrl;
+	@BeforeTest
+	@Parameters("browserType")
+	public void setUp(String browserType) throws Exception {
+	
+		if("Firefox".equalsIgnoreCase(browserType)){
+		System.setProperty("webdriver.gecko.driver", "C:\\Users\\Samuel\\Documents\\Software Testing\\Selenium\\geckodriver.exe");
+		driver = new FirefoxDriver();
+		}
+		else if ("Chrome".equalsIgnoreCase(browserType)) {
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Samuel\\Documents\\Software Testing\\Selenium\\chromedriver.exe");
+		driver = new ChromeDriver();
+		}
+    
+    @AfterTest
+	public void teardown() {
+		if(this.driver!=null)
+		{
+			this.driver.close();
+			this.driver = null;
+		}		
+		
+	}
+}
