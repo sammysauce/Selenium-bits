@@ -1,0 +1,66 @@
+package Listeners;
+
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestNGMethod;
+import org.testng.ITestResult;
+
+public class BrowserListen implements ITestListener {
+
+	@Override
+	public void onTestStart(ITestResult result) {
+		System.out.println("on Test Start --> Test name: " + result.getName());
+		
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onTestSuccess(ITestResult result) {
+		System.out.println("Test scucessful: " + result.getName());
+		
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onTestFailure(ITestResult result) {
+		System.out.println("Test failed: " + result.getName());
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onTestSkipped(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onStart(ITestContext context) {
+		System.out.println("onStart --> Test Tag Name:" + context.getName());
+		ITestNGMethod[] methods = context.getAllTestMethods();
+		System.out.println("These methods will be executed in this test tag:");
+		for (ITestNGMethod method: methods) {
+			System.out.println(method.getMethodName());
+		}
+		
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onFinish(ITestContext context) {
+		System.out.println("onFinish --> Test Tag Name:" + context.getName());
+		
+		// TODO Auto-generated method stub
+		
+	}
+
+}
